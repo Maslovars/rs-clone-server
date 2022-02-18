@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "jwtSecretKey": "rss-clone-2022",
+    "uri": "mongodb+srv://Maslovars:UM8WG7bTv35tIg7s@cluster0.gst6q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

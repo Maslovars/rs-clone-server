@@ -1,0 +1,28 @@
+{
+  "name": "rs-clone-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maslovars/rs-clone-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maslovars/rs-clone-server/issues"
+  },
+  "homepage": "https://github.com/Maslovars/rs-clone-server#readme",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
