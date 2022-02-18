@@ -11,8 +11,14 @@ const config = require('config');
 router.post(
     '/register',
     [
-        check('userName', 'Invalid username').isLength({ min: 3 }),
-        check('password', 'Invalid password').isLength({ min: 6 })
+        check('userName', 'Username must be at least 3 chars long').isLength({ min: 3 }),
+        check('password')
+            .isLength({ min: 6 })
+            .withMessage('must be at least 6 chars long')
+            .matches(/\d/)
+            .withMessage('must contain a number')
+            .matches(/\D/)
+            .withMessage('must contain a char')
     ],
     async (req, res) => {
         try {
@@ -32,7 +38,7 @@ router.post(
             const candidate = await User.findOne({ userName });
 
             if (candidate) {
-                return res.status(400).json({ message: 'This username already exist' });
+                return res.status(400).json({ message: 'Such username already exists!' });
             }
 
             const hashedPass = await bcrypt.hash(password, saltRounds);
@@ -43,7 +49,7 @@ router.post(
 
             await user.save();
 
-            res.status(201).json({ message: 'User successfully created' });
+            res.status(201).json({ message: 'User successfully created!' });
         } catch (err) {
             // console.log('err', err);
             res.status(500).json({ message: 'Something went wrong!' });
