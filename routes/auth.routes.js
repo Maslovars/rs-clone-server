@@ -14,11 +14,11 @@ router.post(
         check('userName', 'Username must be at least 3 chars long').isLength({ min: 3 }),
         check('password')
             .isLength({ min: 6 })
-            .withMessage('must be at least 6 chars long')
+            .withMessage('Password must be at least 6 chars long')
             .matches(/\d/)
-            .withMessage('must contain a number')
+            .withMessage('Password must contain a number')
             .matches(/\D/)
-            .withMessage('must contain a char')
+            .withMessage('Password must contain a char')
     ],
     async (req, res) => {
         try {
@@ -30,7 +30,7 @@ router.post(
             if (!errors.isEmpty()) {
                 return res.status(400).json({
                     errors: errors.array(),
-                    message: 'Invalid data'
+                    message: errors.array()[0].msg
                 })
             }
 
