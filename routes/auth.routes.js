@@ -96,6 +96,7 @@ router.post(
             res.json({ token, userId: user.id });
 
         } catch (err) {
+            console.log('err', err);
             res.status(500).json({ message: 'Something went wrong!' });
         }
     });
