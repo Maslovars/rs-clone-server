@@ -3,6 +3,9 @@ const config = require('config');
 const mongoose = require('mongoose');
 
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json({ extended: true }));
 
